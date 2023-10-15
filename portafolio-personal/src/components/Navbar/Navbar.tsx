@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+// import { useState } from 'react'
+// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from './../../assets/Logo.png'
 import './navbar.css'
 
@@ -12,12 +12,12 @@ const navigation = [
     { name: 'Contactame', href: '#contactame' },
 ]
 
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes: string[]) {
+//     return classes.filter(Boolean).join(' ')
+// }
 
 export default function Navbar({ children }: any) {
-    const [botonMenu, setBotonMenu] = useState(false);
+    // const [botonMenu, setBotonMenu] = useState(false);
 
 
     return (
