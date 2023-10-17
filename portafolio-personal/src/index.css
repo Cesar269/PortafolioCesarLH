@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Share+Tech+Mono&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Share+Tech+Mono&display=swap');
 
 #root {
   margin: 0;
@@ -23,4 +23,7 @@ body {
 .titulos {
   font-family: 'Roboto', sans-serif;
   font-family: 'Share Tech Mono', monospace;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
 }

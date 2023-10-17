@@ -1,4 +1,61 @@
-.backgroundBlanco{
+.backgroundBlanco {
     background-color: aliceblue;
 }
 
+#hola {
+    font-size: 32px;
+
+}
+
+#nombre {
+    font-size: 48px;
+    color: #0A2B4E;
+}
+
+#descripcion {
+    font-size: 32px;
+}
+
+#dev {
+    font-size: 44px;
+    color: #F2006B;
+}
+
+@media screen and (width < 600px) {
+    #hola {
+        font-size: 28px;
+
+    }
+
+    #nombre {
+        font-size: 40px;
+    }
+
+    #descripcion {
+        font-size: 28px;
+    }
+
+    #dev {
+        font-size: 35px;
+    }
+}
+
+/* #presentacion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5ch;
+} */
+.mismalinea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3ch;
+}
+
+.mismalinea>p {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    height: 3ch;
+}

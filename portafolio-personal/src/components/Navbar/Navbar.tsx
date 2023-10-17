@@ -1,5 +1,5 @@
-// import { useState } from 'react'
-// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
+import { ArrowDownTrayIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from './../../assets/Logo.png'
 import './navbar.css'
 
@@ -12,44 +12,84 @@ const navigation = [
     { name: 'Contactame', href: '#contactame' },
 ]
 
-// function classNames(...classes: string[]) {
-//     return classes.filter(Boolean).join(' ')
-// }
+function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(' ')
+}
 
 export default function Navbar({ children }: any) {
-    // const [botonMenu, setBotonMenu] = useState(false);
+    const [botonMenu, setBotonMenu] = useState(false);
 
 
     return (
         <nav className="bg-white">
 
             <>
-                <nav className='max-w-7xl px-2 lg:px-8 sm:mx-auto h-24 flex justify-between items-center'>
-                    <div id="logo">
+                <nav className='max-w-7xl px-4 sm:px-8 sm:mx-auto h-20 flex justify-between items-center'>
+                    <div className="flex items-center lg:hidden">
+                        {/* Mobile menu button*/}
+                        <div className="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                            <span className="sr-only">Abrir menú</span>
+                            {botonMenu ? (
+                                <XMarkIcon className="block h-8 w-8" aria-hidden="true" onClick={() => setBotonMenu(false)} />
+                            ) : (
+                                <Bars3Icon className="block h-8 w-8" aria-hidden="true" onClick={() => setBotonMenu(true)} />
+                            )}
+                        </div>
+                    </div>
+                    <div id="logo" className='ml-8 lg:ml-0'>
                         <img src={Logo} alt="LOGO PERSONAL PORTAFOLIO" />
                     </div>
-                    <div id="secciones" className='flex space-x-8'>
+                    <div id="secciones" className='hidden lg:block flex space-x-8'>
                         {navigation.map((item) => (
                             <a
                                 href={item.href}
                                 key={item.name}
                                 id="liga"
-                                className='titulo'
+                                className='titulos text-emerald-800'
                             >
                                 {item.name}
                             </a>
                         ))}
                     </div>
-                    <span className="sm:ml-3 titulos" id='botonDescarga'>
-                        <button type="button" className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            <svg className="-ml-0.5 mr-1.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                            </svg>
+                    <span className="titulos" id='botonDescarga'>
+                        <button type="button" className="hidden lg:block inline-flex items-center rounded-lg bg-inherit px-5 py-1 text-emerald-800 shadow-md hover:bg-emerald-50 outline outline-2 outline-emerald-800">
                             Descargar CV
+                        </button>
+                        <button type="button" className="block lg:hidden flex inline-flex items-center rounded-lg bg-inherit px-3 py-1 text-emerald-800 shadow-md hover:bg-emerald-50 outline outline-2 outline-emerald-800">
+                            <ArrowDownTrayIcon className="h-6 w-6 mx-1" aria-hidden="true" />
+                            CV
                         </button>
                     </span>
 
                 </nav>
+                <div className='absolute bg-gray-300 w-11/12 rounded-md ml-5 sm:ml-8 z-10'>
+                    <div className={botonMenu ? ("block") : ("hidden")}>
+                        <div className="space-y-1 px-4 sm:px-8 pb-3 pt-2 lg:hidden">
+                            {navigation.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className={classNames(
+                                        'text-gray-600 hover:bg-gray-700 hover:text-white',
+                                        'block rounded-md px-3 py-2 text-md font-medium'
+                                    )}>{item.name}</a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                {/* <div className={botonMenu ? ("block") : ("hidden")}>
+                        <div className="space-y-1 px-4 sm:px-8 pb-3 pt-2 lg:hidden">
+                            {navigation.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className={classNames(
+                                        'text-gray-600 hover:bg-gray-700 hover:text-white',
+                                        'block rounded-md px-3 py-2 text-lg font-medium titulos'
+                                    )}>{item.name}</a>
+                            ))}
+                        </div>
+                    </div> */}
                 {children}
             </>
 
